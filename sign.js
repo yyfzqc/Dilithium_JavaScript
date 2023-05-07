@@ -159,7 +159,7 @@ rej:
 
   // Write signature
   pack_sig(sig, sig, z, h);
-  *siglen = CRYPTO_BYTES;
+  siglen = CRYPTO_BYTES;
   return 0;
 }
 
