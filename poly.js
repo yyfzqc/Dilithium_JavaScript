@@ -1,22 +1,23 @@
+// 实现多项式的规约, 将多项式 $a$ 中的所有系数规约到 [-6283009, 6283007] 的范围内
 function poly_reduce(a) {
   let i;
-  DBENCH_START();
+  // DBENCH_START();
 
   for (i = 0; i < N; ++i) {
     a.coeffs[i] = reduce32(a.coeffs[i]);
   }
 
-  DBENCH_STOP(tred);
+  // DBENCH_STOP(tred);
 }
 
 function poly_caddq(a) {
   let i;
-  DBENCH_START();
+  // DBENCH_START();
 
   for(i = 0; i < N; ++i)
     a.coeffs[i] = caddq(a.coeffs[i]);
 
-  DBENCH_STOP(tred);
+  // DBENCH_STOP(tred);
 }
 
 function poly_add(c, a, b) {
@@ -393,6 +394,7 @@ function polyt0_unpack(r, a) {
     for (let j = 0; j < 8; j++) {
       r.coeffs[8*i+j] = (1 << (D-1)) - r.coeffs[8*i+j];
     }
+  }
   DBENCH_STOP(tpack);
 }
 
@@ -514,5 +516,5 @@ function polyw1_pack(r, a) {
     }
   }
 
-  DBENCH_STOP(tpack);
+  // DBENCH_STOP(tpack);
 }
